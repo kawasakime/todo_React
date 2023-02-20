@@ -58,7 +58,7 @@ function App() {
           <Footer
             currentFilter={filter}
             setFilter={setFilter}
-            counter={notes.length}
+            counter={filteredNotes().length}
           />
         )}
       </div>
