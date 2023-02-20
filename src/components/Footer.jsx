@@ -1,10 +1,12 @@
 import React from 'react';
 
 const Footer = (props) => {
+
+
     return (
         <div className='footer'>
             <div className="footerContent">
-            <p className="footerText">{`${props.counter} записи`}</p>
+            <p className="footerText">{`${props.counter} notes`}</p>
             <div className="footerBtns">
                 <button className="footerFilter">Все</button>
                 <button className="footerFilter">Активные</button>

@@ -5,17 +5,21 @@ import NewNote from './components/NewNote';
 import Footer from './components/Footer';
 
 function App() {
-  const [notes, setNotes] = useState([
-    {id:1, name:"Lorem ipsum dolor sit amet consectetur."},
-    {id:2, name:"Lorem ium dolor sit amet consectetur."},
-    {id:3, name:"Lorem ipsum dolor sit amet consectetur."}
-  ])
+  const [notes, setNotes] = useState([])
+
+  const createNote = (newNote) => {
+    setNotes([...notes, newNote])
+  }
+
+  const removeNote = (note) => {
+    setNotes(notes.filter(n => n.id !== note.id))
+  }
 
   return (
     <div className="App">
       <div className="mainBlock">
-        <NewNote/>
-        <NoteList notes={notes}/>
+        <NewNote create={createNote}/>
+        <NoteList remove={removeNote} notes={notes}/>
         <Footer counter={notes.length}/>
       </div>
       
@@ -24,3 +28,5 @@ function App() {
 }
 
 export default App;
+
+

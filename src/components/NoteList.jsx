@@ -1,10 +1,11 @@
 import React from 'react';
 import Note from './Note';
 
-const NoteList = ({props, notes}) => {
+const NoteList = ({notes, remove}) => {
     return (
         <div className='notesList'>
-            {notes.map(note => <Note note={note} key={note.id}/>)}
+            {notes.map(note => 
+            <Note note={note} remove={remove} key={note.id}/>)}
         </div>
     );
 };

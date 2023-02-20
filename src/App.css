@@ -76,6 +76,7 @@ body {
 
 .checkNote:checked + label {
   text-decoration:line-through;
+  color: #9D9D9D;
 }
 
 .newNote {
