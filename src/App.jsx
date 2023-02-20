@@ -1,24 +1,67 @@
-import './App.css';
-import React, {useState} from 'react'
-import NoteList from './components/NoteList';
-import NewNote from './components/NewNote';
-import Footer from './components/Footer';
+import "./App.css";
+import React from "react";
+import NoteList from "./components/NoteList";
+import NewNote from "./components/NewNote";
+import Footer from "./components/Footer";
 
 function App() {
-  const [notes, setNotes] = useState([
-    {id:1, name:"Lorem ipsum dolor sit amet consectetur."},
-    {id:2, name:"Lorem ium dolor sit amet consectetur."},
-    {id:3, name:"Lorem ipsum dolor sit amet consectetur."}
-  ])
+  const [notes, setNotes] = React.useState([]);
+  // all \ completed \ active
+  const [filter, setFilter] = React.useState("all");
+
+  // удаление задачи
+  const removeNote = (id) => {
+    setNotes((prev) => {
+      const index = prev.findIndex((item) => item.id === id);
+
+      const newNotes = [...prev.slice(0, index), ...prev.slice(index + 1)];
+
+      return newNotes.map((item, i) => ({ ...item, id: i }));
+    });
+  };
+
+  // добавление задачи
+  const addNote = (text) => {
+    setNotes((prev) => [
+      ...prev,
+      { id: prev.length, text: text, completed: false },
+    ]);
+  };
+
+  // изменение статуса задачи
+  const changeNoteStatus = (id) => {
+    setNotes((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, completed: !item.completed } : item
+      )
+    );
+  };
+
+  // фильтрация задач
+  const filteredNotes = () =>
+    notes.filter((item) => {
+      if (filter === "all") return item;
+
+      return filter === "completed" ? item.completed : !item.completed;
+    });
 
   return (
     <div className="App">
       <div className="mainBlock">
-        <NewNote/>
-        <NoteList notes={notes}/>
-        <Footer counter={notes.length}/>
+        <NewNote addNote={addNote} />
+        <NoteList
+          notes={filteredNotes()}
+          removeNote={removeNote}
+          changeNoteStatus={changeNoteStatus}
+        />
+        {notes.length > 0 && (
+          <Footer
+            currentFilter={filter}
+            setFilter={setFilter}
+            counter={notes.length}
+          />
+        )}
       </div>
-      
     </div>
   );
 }

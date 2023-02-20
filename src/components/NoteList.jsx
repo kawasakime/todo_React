@@ -1,12 +1,19 @@
-import React from 'react';
-import Note from './Note';
+import React from "react";
+import Note from "./Note";
 
-const NoteList = ({props, notes}) => {
-    return (
-        <div className='notesList'>
-            {notes.map(note => <Note note={note} key={note.id}/>)}
-        </div>
-    );
+const NoteList = ({ notes, removeNote, changeNoteStatus }) => {
+  return (
+    <div className="notesList">
+      {notes.map((item) => (
+        <Note
+          removeNote={removeNote}
+          changeNoteStatus={changeNoteStatus}
+          item={item}
+          key={item.id}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default NoteList;
