@@ -1,38 +1,145 @@
-.App {
-  text-align: center;
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(to left top,#9D9D9D, #585858);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.mainBlock{
+  width: 55%;
+  margin: 0 auto;
+  filter: drop-shadow(18px 18px 8px rgba(0, 0, 0, 0.25));;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.noteText {
+  display: flex;
+  align-items: center;
+}
+
+.note {
+  border: 1px solid #000000;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #fff;
+}
+
+.noteName {
+  font-size: 22px;
+  margin-left: 10px;
+  display: block;
+  cursor:pointer;
+}
+
+.removeBtn {
+  width: 10%;
+  background: none;
+  border: none;
+}
+
+.removeBtnImg {
+  width: 50%;
+  transition: .5s;
+}
+
+.radioNote {
+  display: block;
+  
+}
+
+.removeBtnImg:hover {
+  transform: rotate(90deg);
+}
+
+.checkNote:checked + label {
+  text-decoration:line-through;
+}
+
+.newNote {
+  display: flex;
+}
+
+.newNoteInput {
+  width: 90%;
+  height: 50px;
+  border-radius: 15px 0px 0px 0px;
+  border: none;
+  background-color: #D9D9D9;
+  padding-left: 15px;
+}
+
+.newNoteBtn {
+  display: block;
+  width: 10%;
+  background-color: #4870FF;
+  border: none;
+  border-radius: 0px 15px 0px 0px;
+  color: #F5F5F5;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.newNoteBtn:hover {
+  background-color: #3859d1;
+}
+
+.footer {
+  background-color: #fff;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.footerBtns {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.footerFilter {
+  display: block;
+  width: 30%;
+  height: 30px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.footerFilter:hover {
+  background-color: #c1c1c1;
+}
+
+.footerText {
+  font-size: 18px;
 }
