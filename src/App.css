@@ -54,10 +54,20 @@ body {
   cursor:pointer;
 }
 
+.noteNameActive {
+  font-size: 22px;
+  margin-left: 10px;
+  display: block;
+  cursor:pointer;
+  text-decoration: line-through;
+  color: #9D9D9D;
+}
+
 .removeBtn {
   width: 10%;
   background: none;
   border: none;
+  z-index: 10000;
 }
 
 .removeBtnImg {
@@ -70,13 +80,30 @@ body {
   
 }
 
+.noteBlock {
+  width: 95%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 .removeBtnImg:hover {
   transform: rotate(90deg);
 }
 
-.checkNote:checked + label {
-  text-decoration:line-through;
-  color: #9D9D9D;
+.checkNoteActive {
+  background: url(../public/assets/img/checked.svg) 0 0/100% auto no-repeat;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.checkNoteUnActive {
+  background: url(../public/assets/img/unchecked.svg) 0 0/100% auto no-repeat;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .newNote {

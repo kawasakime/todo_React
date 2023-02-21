@@ -8,9 +8,9 @@ const Footer = (props) => {
             <div className="footerContent">
             <p className="footerText">{`${props.counter} notes`}</p>
             <div className="footerBtns">
-                <button className="footerFilter">Все</button>
-                <button className="footerFilter">Активные</button>
-                <button className="footerFilter">Выполненные</button>
+                <button onClick={() => props.filter("all")} className="footerFilter">Все</button>
+                <button onClick={() => props.filter(true)} className="footerFilter">Активные</button>
+                <button onClick={() => props.filter(false)} className="footerFilter">Выполненные</button>
             </div>
         </div>
         </div>
